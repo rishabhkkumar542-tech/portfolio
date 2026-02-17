@@ -1,0 +1,69 @@
+HOW TO ADD MORE THUMBNAILS
+===========================
+
+Your portfolio now has a "thumbnails" folder that makes it easy to add more designs!
+
+CURRENT STRUCTURE:
+------------------
+portfolio-package/
+├── index.html
+├── thumbnails/
+│   ├── thumbnail1.png
+│   ├── thumbnail2.png
+│   ├── thumbnail3.png
+│   └── thumbnail4.png
+└── README.txt
+
+
+TO ADD MORE THUMBNAILS:
+-----------------------
+
+STEP 1: Add Your New Image
+1. Save your new thumbnail as thumbnail5.png (or thumbnail6.png, etc.)
+2. Put it in the "thumbnails" folder
+3. Make sure it's in 16:9 aspect ratio (like 1920x1080 or 1280x720)
+
+
+STEP 2: Update the HTML
+1. Open index.html in a text editor (Notepad, VS Code, etc.)
+2. Find this section (search for "<!-- First set -->")
+3. Add this code BEFORE the "<!-- Duplicate set for seamless loop -->" comment:
+
+                <div class="thumbnail-item">
+                    <img src="thumbnails/thumbnail5.png" alt="Your New Title">
+                    <div class="thumbnail-overlay">
+                        <h3>Your Thumbnail Title</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+4. Copy the SAME code again in the "Duplicate set" section (to make the loop seamless)
+5. Save the file
+
+
+EXAMPLE - Adding Thumbnail 5:
+------------------------------
+
+BEFORE the "<!-- Duplicate set -->" comment, add:
+
+                <div class="thumbnail-item">
+                    <img src="thumbnails/thumbnail5.png" alt="Stock Market Analysis">
+                    <div class="thumbnail-overlay">
+                        <h3>Stock Market Analysis</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+AFTER finding the duplicate section comment, add the SAME code again.
+
+
+QUICK TIPS:
+-----------
+- Name your thumbnails in order: thumbnail5.png, thumbnail6.png, etc.
+- Always add the thumbnail code in BOTH sections (original and duplicate)
+- Keep all images in the "thumbnails" folder
+- Use 16:9 aspect ratio for best results
+- After adding, just re-upload the folder to your hosting
+
+
+That's it! Your new thumbnails will automatically appear in the slider! 🎉

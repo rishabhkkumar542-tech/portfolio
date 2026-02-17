@@ -1,0 +1,188 @@
+========================================
+HOW TO ADD CLIPS & THUMBNAILS WITH LINKS
+========================================
+
+Your portfolio has two sections:
+1. THUMBNAIL DESIGNS (thumbnails/ folder) - WITHOUT links (just for display)
+2. CONTENT CLIPS (clips/ folder) - WITH YouTube links (clickable)
+
+This guide covers both!
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 1: THUMBNAILS (Display Only - No Links)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FOLDER: thumbnails/
+ASPECT RATIO: 16:9 (e.g., 1920x1080, 1280x720)
+PURPOSE: Showcase your thumbnail designs
+
+HOW TO ADD:
+-----------
+
+STEP 1: Prepare Your Image
+- Export your thumbnail as PNG or JPG
+- Name it: thumbnail5.png, thumbnail6.png, etc.
+- Aspect ratio: 16:9 (horizontal)
+- Put it in the "thumbnails" folder
+
+STEP 2: Add to HTML
+- Open index.html in a text editor
+- Find: <!-- First set -->
+- BEFORE the "<!-- Duplicate set -->" comment, add:
+
+                <div class="thumbnail-item">
+                    <img src="thumbnails/thumbnail5.png" alt="Description">
+                    <div class="thumbnail-overlay">
+                        <h3>Your Thumbnail Title</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+STEP 3: Duplicate for Loop
+- Find: <!-- Duplicate set for seamless loop -->
+- Add the SAME code again (so slider loops smoothly)
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+PART 2: CONTENT CLIPS (WITH YouTube Links)
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+FOLDER: clips/
+ASPECT RATIO: 9:16 (e.g., 1080x1920 - vertical like Instagram/TikTok)
+PURPOSE: Link to your YouTube videos/shorts
+
+HOW TO ADD:
+-----------
+
+STEP 1: Prepare Your Clip Image
+- Export your clip thumbnail as PNG or JPG
+- Name it: clip5.png, clip6.png, etc.
+- Aspect ratio: 9:16 (VERTICAL)
+- Put it in the "clips" folder
+
+STEP 2: Get Your YouTube Video Link
+- Go to your YouTube video
+- Click "Share" button
+- Copy the link (e.g., https://www.youtube.com/watch?v=dQw4w9WgXcQ)
+- Note the VIDEO_ID (the part after "v=")
+  Example: dQw4w9WgXcQ
+
+For YouTube Shorts:
+- Link looks like: https://www.youtube.com/shorts/ABC123
+- The VIDEO_ID is: ABC123
+
+STEP 3: Add to HTML
+- Open index.html in a text editor
+- Find the CONTENT CLIPS section
+- BEFORE the "<!-- Duplicate set -->" comment, add:
+
+                <a href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID" target="_blank" class="clip-item">
+                    <img src="clips/clip5.png" alt="Clip 5">
+                    <div class="clip-overlay">
+                        <h3>Your Clip Title</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+
+STEP 4: Replace YOUR_VIDEO_ID
+Replace "YOUR_VIDEO_ID" with your actual video ID:
+
+BEFORE: https://www.youtube.com/watch?v=YOUR_VIDEO_ID
+AFTER:  https://www.youtube.com/watch?v=dQw4w9WgXcQ
+
+STEP 5: Duplicate for Loop
+- Find: <!-- Duplicate set for seamless loop --> (in clips section)
+- Add the SAME code again
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+COMPLETE EXAMPLES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+EXAMPLE 1: Adding a Thumbnail (No Link)
+----------------------------------------
+
+File: thumbnails/thumbnail5.png
+Code to add:
+
+                <div class="thumbnail-item">
+                    <img src="thumbnails/thumbnail5.png" alt="Stock Market Crash">
+                    <div class="thumbnail-overlay">
+                        <h3>Stock Market Crash</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+
+EXAMPLE 2: Adding a Clip WITH YouTube Link
+-------------------------------------------
+
+File: clips/clip5.png
+YouTube Link: https://www.youtube.com/shorts/ABC123XYZ
+Code to add:
+
+                <a href="https://www.youtube.com/shorts/ABC123XYZ" target="_blank" class="clip-item">
+                    <img src="clips/clip5.png" alt="Morning Routine Short">
+                    <div class="clip-overlay">
+                        <h3>Morning Routine</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+QUICK REFERENCE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+THUMBNAILS:
+✓ Folder: thumbnails/
+✓ Aspect: 16:9 (horizontal)
+✓ Links: NO
+✓ Use: <div class="thumbnail-item">
+
+CLIPS:
+✓ Folder: clips/
+✓ Aspect: 9:16 (vertical)
+✓ Links: YES (YouTube)
+✓ Use: <a href="..." class="clip-item">
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+IMPORTANT NOTES
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Always add content in BOTH places:
+   - Original section (shows first)
+   - Duplicate section (makes loop seamless)
+
+2. Keep image naming consistent:
+   - Thumbnails: thumbnail1.png, thumbnail2.png...
+   - Clips: clip1.png, clip2.png...
+
+3. YouTube link formats that work:
+   ✓ https://www.youtube.com/watch?v=VIDEO_ID
+   ✓ https://www.youtube.com/shorts/VIDEO_ID
+   ✓ https://youtu.be/VIDEO_ID
+
+4. The "target="_blank"" makes links open in new tab
+
+5. After adding, re-upload your entire portfolio folder
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TROUBLESHOOTING
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+Problem: Images don't show
+Solution: Make sure image is in correct folder (thumbnails/ or clips/)
+
+Problem: Links don't work
+Solution: Check YouTube URL is complete with https://
+
+Problem: Slider looks weird
+Solution: Make sure you added code in BOTH sections (original + duplicate)
+
+Problem: Wrong aspect ratio
+Solution: Thumbnails = 16:9 horizontal, Clips = 9:16 vertical
+
+
+Need help? Just follow the examples above! 🎬

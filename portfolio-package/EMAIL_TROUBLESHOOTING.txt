@@ -1,0 +1,155 @@
+EMAIL LINK TROUBLESHOOTING GUIDE
+=================================
+
+Your email link IS correctly set up in the portfolio!
+Link: mailto:rishabhkkumar30@gmail.com
+
+If the email is not opening, here's why and how to fix it:
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+WHY EMAIL MIGHT NOT WORK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+The mailto: link works perfectly, BUT it depends on:
+1. Having a default email app set on your device
+2. Your browser allowing mailto: links
+3. The device/OS you're testing on
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SOLUTIONS BY DEVICE
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+📱 ON MOBILE (Android/iPhone):
+------------------------------
+✅ Should work automatically!
+- Android: Opens default mail app (Gmail, Outlook, etc.)
+- iPhone: Opens Mail app or Gmail if default
+
+If not working:
+1. Make sure you have Gmail app installed
+2. Set Gmail as default email app in phone settings
+
+
+💻 ON WINDOWS:
+--------------
+If email doesn't open:
+
+METHOD 1: Set Default Email App
+1. Open Settings → Apps → Default Apps
+2. Click "Email"
+3. Choose Gmail, Outlook, or Thunderbird
+4. Try clicking email link again
+
+METHOD 2: Use Gmail Web
+1. Go to Gmail.com and log in
+2. In Chrome settings, set Gmail as mailto handler
+3. Chrome Settings → Privacy → Site Settings → Handlers
+4. Allow Gmail to handle mailto links
+
+
+💻 ON MAC:
+----------
+1. Open Mail app (pre-installed)
+2. Add your Gmail account to Mail app
+3. System Preferences → General → Default email reader → Mail
+4. Email link should now work!
+
+Alternative: Use Outlook, Thunderbird, or other mail app
+
+
+💻 ON LINUX:
+------------
+1. Install Thunderbird or Evolution
+2. Set as default mail handler
+3. Email link will work
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ALTERNATIVE SOLUTIONS
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+OPTION 1: Change to Gmail Web Link
+-----------------------------------
+If mailto: doesn't work, you can change the link to open Gmail directly in browser:
+
+In index.html, find:
+<a href="mailto:rishabhkkumar30@gmail.com"
+
+Replace with:
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=rishabhkkumar30@gmail.com" target="_blank"
+
+This opens Gmail compose window in browser (works everywhere!)
+
+
+OPTION 2: Just Display Email (Let Users Copy)
+----------------------------------------------
+Remove the link entirely - just show the email:
+
+Change:
+<a href="mailto:rishabhkkumar30@gmail.com" class="contact-card">
+    ...
+    <p>rishabhkkumar30@gmail.com</p>
+</a>
+
+To:
+<div class="contact-card">
+    ...
+    <p>rishabhkkumar30@gmail.com</p>
+</div>
+
+Users can copy-paste the email themselves.
+
+
+OPTION 3: Add Both Gmail Web + Mailto
+--------------------------------------
+Keep mailto for users with email apps, add a note for web users:
+
+<a href="mailto:rishabhkkumar30@gmail.com" class="contact-card">
+    <h3>Email</h3>
+    <p>rishabhkkumar30@gmail.com</p>
+    <small style="font-size: 0.8em; color: #888;">
+        (Click to open email app or copy address)
+    </small>
+</a>
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+TESTING THE EMAIL LINK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+I've created a test file for you:
+
+1. Open "test-links.html" in your browser
+2. Click the email test links
+3. See if they open your email app
+
+This will help you diagnose if:
+- Email app is set up correctly
+- Browser is blocking mailto: links
+- You need an alternative solution
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+RECOMMENDED: USE GMAIL WEB LINK
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+For BEST compatibility (works on ALL devices):
+
+Replace the email link in index.html with this:
+
+<a href="https://mail.google.com/mail/?view=cm&fs=1&to=rishabhkkumar30@gmail.com" target="_blank" class="contact-card" style="text-decoration: none; color: inherit;">
+
+This opens Gmail compose in a new tab - works everywhere!
+
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+SUMMARY
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✅ Your email link IS working (mailto: is correct)
+⚠️ It requires a default email app to be set
+💡 Use Gmail web link for universal compatibility
+🧪 Test with test-links.html file
+
+Choose the solution that works best for your audience!

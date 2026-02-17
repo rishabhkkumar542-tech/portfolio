@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+    <link rel="preconnect" href="https://img.youtube.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0a0a0a;
+            --bg-secondary: #141414;
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+            --accent: #ffffff;
+            --border: #333;
+            --glow: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(180deg, #000000 0%, #0a0a0a 50%, #000000 100%);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        header {
+            position: relative;
+            text-align: center;
+            padding: 120px 20px 80px;
+            background: radial-gradient(ellipse at top, #1a1a1a 0%, #000000 70%);
+            border-bottom: 1px solid var(--border);
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: 
+                repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px),
+                repeating-linear-gradient(90deg, transparent, transparent 2px, rgba(255,255,255,0.03) 2px, rgba(255,255,255,0.03) 4px);
+            pointer-events: none;
+        }
+
+        header h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 5em;
+            letter-spacing: 8px;
+            margin-bottom: 15px;
+            position: relative;
+            animation: fadeInDown 1s ease;
+            text-shadow: 0 0 40px rgba(255, 255, 255, 0.3);
+        }
+
+        header p {
+            font-size: 1.4em;
+            color: var(--text-secondary);
+            font-weight: 300;
+            letter-spacing: 2px;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 3.5em;
+            text-align: center;
+            margin-bottom: 70px;
+            letter-spacing: 4px;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--accent), transparent);
+        }
+
+        /* About Section */
+        .about-section {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+
+        .about-content {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .about-content p {
+            font-size: 1.15em;
+            color: var(--text-secondary);
+            line-height: 2;
+            font-weight: 300;
+        }
+
+        /* Tools Section */
+        .tools-section {
+            background: var(--bg-primary);
+        }
+
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 40px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tool-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border: 1px solid var(--border);
+            padding: 40px 20px;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tool-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-15px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow);
+        }
+
+        .tool-card:hover::before {
+            opacity: 1;
+        }
+
+        .tool-logo {
+            width: 90px;
+            height: 90px;
+            margin: 0 auto 20px;
+            transition: all 0.4s ease;
+        }
+
+        .tool-logo svg {
+            width: 100%;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .tool-card:hover .tool-logo svg {
+            transform: scale(1.1);
+        }
+
+        .tool-card h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        /* Slider Section */
+        .slider-section {
+            background: var(--bg-secondary);
+            overflow: hidden;
+        }
+
+        .slider-wrapper {
+            position: relative;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slider-track {
+            display: flex;
+            gap: 30px;
+            animation: scroll-horizontal 30s linear infinite;
+            width: max-content;
+        }
+
+        .slider-track:hover {
+            animation-play-state: paused;
+        }
+
+        /* Thumbnail Slider - 16:9 */
+        .thumbnail-item {
+            flex: 0 0 450px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumbnail-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px var(--glow);
+        }
+
+        .thumbnail-item img {
+            width: 100%;
+            aspect-ratio: 16/9;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .thumbnail-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .thumbnail-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+            padding: 25px;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .thumbnail-item:hover .thumbnail-overlay {
+            transform: translateY(0);
+        }
+
+        .thumbnail-overlay h3 {
+            font-size: 1.2em;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .thumbnail-overlay p {
+            color: var(--text-secondary);
+            font-size: 0.9em;
+        }
+
+        /* Clips Slider - 9:16 */
+        .clips-wrapper .slider-track {
+            animation: scroll-horizontal 40s linear infinite;
+        }
+
+        .clip-item {
+            flex: 0 0 280px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            border: 1px solid var(--border);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            cursor: pointer;
+        }
+
+        .clip-item:hover {
+            transform: scale(1.05);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8), 0 0 50px var(--glow);
+        }
+
+        .clip-item img {
+            width: 100%;
+            aspect-ratio: 9/16;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.6s ease;
+        }
+
+        .clip-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .clip-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.95) 0%, transparent 100%);
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .clip-item:hover .clip-overlay {
+            transform: translateY(0);
+        }
+
+        .clip-overlay h3 {
+            font-size: 1em;
+            margin-bottom: 3px;
+            font-weight: 600;
+        }
+
+        .clip-overlay p {
+            color: var(--text-secondary);
+            font-size: 0.85em;
+        }
+
+        @keyframes scroll-horizontal {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: var(--bg-primary);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .contact-card {
+            background: linear-gradient(135deg, #1a1a1a 0%, #0f0f0f 100%);
+            border: 1px solid var(--border);
+            padding: 50px 30px;
+            text-align: center;
+            border-radius: 10px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+            display: block;
+            text-decoration: none;
+            color: inherit;
+            cursor: pointer;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 40px var(--glow);
+        }
+
+        .contact-card:hover::before {
+            opacity: 1;
+        }
+
+        .contact-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 25px;
+            transition: all 0.4s ease;
+        }
+
+        .contact-icon svg {
+            width: 100%;
+            height: 100%;
+            transition: all 0.4s ease;
+        }
+
+        .contact-card:hover .contact-icon svg {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px rgba(255, 255, 255, 0.4));
+        }
+
+        .contact-card h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .contact-card p {
+            color: var(--text-secondary);
+            font-size: 1.1em;
+        }
+
+        .contact-card a {
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-card a:hover {
+            color: #25D366;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 50px 20px;
+            background: #000000;
+            border-top: 1px solid var(--border);
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.95em;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 3em;
+                letter-spacing: 4px;
+            }
+
+            header p {
+                font-size: 1.1em;
+            }
+
+            .section-title {
+                font-size: 2.5em;
+            }
+
+            .thumbnail-item {
+                flex: 0 0 320px;
+            }
+
+            .clip-item {
+                flex: 0 0 200px;
+            }
+
+            .tools-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>MY PORTFOLIO</h1>
+        <p>CONTENT CREATOR • DESIGNER • EDITOR</p>
+    </header>
+
+    
+
+    <!-- About Me Section -->
+    <section class="about-section">
+        <div class="container">
+            <h2 class="section-title">ABOUT ME</h2>
+            <div class="about-content">
+                <p>
+                    Hello! I'm a passionate content creator specializing in thumbnail design and video editing. 
+                    I create eye-catching thumbnails and engaging content clips that help videos stand out and attract viewers. 
+                    With years of experience in digital content creation, I understand what it takes to make content that resonates 
+                    with audiences and drives engagement.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thumbnail Designs Section -->
+    <section class="slider-section">
+        <div class="container">
+            <h2 class="section-title">THUMBNAIL DESIGNS</h2>
+        </div>
+        <div class="slider-wrapper">
+            <div class="slider-track" id="thumbnailTrack">
+                <!-- First set -->
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail1.jpg" alt="Insurance Masterclass">
+                    <div class="thumbnail-overlay">
+                        <h3>Insurance Masterclass</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail2.jpg" alt="Nirma Case Study">
+                    <div class="thumbnail-overlay">
+                        <h3>Nirma Case Study</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail3.jpg" alt="Japan Yen Collapse">
+                    <div class="thumbnail-overlay">
+                        <h3>Japan Yen Collapse</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail4.jpg" alt="Youth Unemployment">
+                    <div class="thumbnail-overlay">
+                        <h3>Youth Unemployment</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <!-- Duplicate set for seamless loop -->
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail1.jpg" alt="Insurance Masterclass">
+                    <div class="thumbnail-overlay">
+                        <h3>Insurance Masterclass</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail2.jpg" alt="Nirma Case Study">
+                    <div class="thumbnail-overlay">
+                        <h3>Nirma Case Study</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail3.jpg" alt="Japan Yen Collapse">
+                    <div class="thumbnail-overlay">
+                        <h3>Japan Yen Collapse</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+
+                <div class="thumbnail-item">
+                    <img loading="lazy" src="thumbnails/thumbnail4.jpg" alt="Youth Unemployment">
+                    <div class="thumbnail-overlay">
+                        <h3>Youth Unemployment</h3>
+                        <p>Professional Thumbnail</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Clips Section -->
+    <section class="slider-section" style="background: var(--bg-primary);">
+        <div class="container">
+            <h2 class="section-title">CONTENT CLIPS</h2>
+        </div>
+        <div class="slider-wrapper clips-wrapper">
+            <div class="slider-track" id="clipsTrack">
+                <!-- First set -->
+                <a href="https://youtube.com/shorts/ThbPNQ2eq9U" target="_blank" class="clip-item">
+                    <img loading="lazy" src="https://img.youtube.com/vi/ThbPNQ2eq9U/maxresdefault.jpg" alt="Podcast Clip 1" onerror="this.src='https://img.youtube.com/vi/ThbPNQ2eq9U/hqdefault.jpg'">
+                    <div class="clip-overlay">
+                        <h3>Podcast Clip 1</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+
+                <a href="https://youtube.com/shorts/RVM5UoQtxQk" target="_blank" class="clip-item">
+                    <img loading="lazy" src="https://img.youtube.com/vi/RVM5UoQtxQk/maxresdefault.jpg" alt="Podcast Clip 2" onerror="this.src='https://img.youtube.com/vi/RVM5UoQtxQk/hqdefault.jpg'">
+                    <div class="clip-overlay">
+                        <h3>Podcast Clip 2</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+
+                <!-- Duplicate set for seamless loop -->
+                <a href="https://youtube.com/shorts/ThbPNQ2eq9U" target="_blank" class="clip-item">
+                    <img loading="lazy" src="https://img.youtube.com/vi/ThbPNQ2eq9U/maxresdefault.jpg" alt="Podcast Clip 1" onerror="this.src='https://img.youtube.com/vi/ThbPNQ2eq9U/hqdefault.jpg'">
+                    <div class="clip-overlay">
+                        <h3>Podcast Clip 1</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+
+                <a href="https://youtube.com/shorts/RVM5UoQtxQk" target="_blank" class="clip-item">
+                    <img loading="lazy" src="https://img.youtube.com/vi/RVM5UoQtxQk/maxresdefault.jpg" alt="Podcast Clip 2" onerror="this.src='https://img.youtube.com/vi/RVM5UoQtxQk/hqdefault.jpg'">
+                    <div class="clip-overlay">
+                        <h3>Podcast Clip 2</h3>
+                        <p>Click to watch</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section class="tools-section">
+        <div class="container">
+            <h2 class="section-title">TOOLS I USE</h2>
+            <div class="tools-grid">
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 234">
+                            <rect width="240" height="234" rx="50" fill="#00005B"/>
+                            <text x="120" y="165" font-family="Arial Black, sans-serif" font-size="110" font-weight="900" fill="#9999FF" text-anchor="middle">Pr</text>
+                        </svg>
+                    </div>
+                    <h3>Premiere Pro</h3>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 234">
+                            <rect width="240" height="234" rx="50" fill="#00005B"/>
+                            <text x="120" y="165" font-family="Arial Black, sans-serif" font-size="110" font-weight="900" fill="#9999FF" text-anchor="middle">Ae</text>
+                        </svg>
+                    </div>
+                    <h3>After Effects</h3>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                            <defs>
+                                <linearGradient id="canva-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00C4CC"/>
+                                    <stop offset="100%" style="stop-color:#7D2AE8"/>
+                                </linearGradient>
+                            </defs>
+                            <circle cx="100" cy="100" r="90" fill="url(#canva-gradient)"/>
+                            <text x="100" y="120" font-family="'Brush Script MT', cursive" font-size="60" font-weight="normal" fill="#ffffff" text-anchor="middle" font-style="italic">Canva</text>
+                        </svg>
+                    </div>
+                    <h3>Canva</h3>
+                </div>
+                <div class="tool-card">
+                    <div class="tool-logo">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+                            <defs>
+                                <linearGradient id="davinci-border-1" x1="0%" y1="0%" x2="0%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#00D4AA"/>
+                                    <stop offset="100%" style="stop-color:#FFEB3B"/>
+                                </linearGradient>
+                                <linearGradient id="davinci-border-2" x1="100%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" style="stop-color:#9C27B0"/>
+                                    <stop offset="100%" style="stop-color:#FF5252"/>
+                                </linearGradient>
+                            </defs>
+                            <rect width="200" height="200" rx="45" fill="#2B3E50"/>
+                            <path d="M 20,20 L 20,180 Q 20,180 45,180 L 155,180 Q 180,180 180,180 L 180,45 Q 180,20 155,20 L 45,20 Q 20,20 20,20 Z" fill="none" stroke="url(#davinci-border-1)" stroke-width="3"/>
+                            <g transform="translate(100,100)">
+                                <ellipse cx="0" cy="-25" rx="18" ry="28" fill="#00D4CC" transform="rotate(-30 0 -25)"/>
+                                <ellipse cx="-22" cy="12" rx="18" ry="28" fill="#FFEB3B" transform="rotate(90 -22 12)"/>
+                                <ellipse cx="22" cy="12" rx="18" ry="28" fill="#FF6B6B" transform="rotate(210 22 12)"/>
+                            </g>
+                        </svg>
+                    </div>
+                    <h3>DaVinci Resolve</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">CONTACT INFO</h2>
+            <div class="contact-grid">
+                <a href="https://wa.me/8004984421" target="_blank" class="contact-card" style="text-decoration: none; color: inherit;">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 175.216 175.552">
+                            <defs>
+                                <linearGradient id="whatsapp-gradient" x1="85.915" x2="86.535" y1="32.567" y2="137.092" gradientUnits="userSpaceOnUse">
+                                    <stop offset="0" stop-color="#57d163"/>
+                                    <stop offset="1" stop-color="#23b33a"/>
+                                </linearGradient>
+                            </defs>
+                            <path fill="url(#whatsapp-gradient)" d="M87.184 25.227c-33.733 0-61.166 27.423-61.178 61.13a60.98 60.98 0 0 0 9.349 32.535l1.455 2.312-6.179 22.559 23.146-6.069 2.235 1.324c9.387 5.571 20.15 8.518 31.126 8.524h.023c33.707 0 61.14-27.426 61.153-61.135a60.75 60.75 0 0 0-17.895-43.251 60.75 60.75 0 0 0-43.235-17.929z"/>
+                            <path fill="#fff" d="M68.772 55.603c-1.378-3.061-2.828-3.123-4.137-3.176l-3.524-.043c-1.226 0-3.218.46-4.902 2.3s-6.435 6.287-6.435 15.332 6.588 17.785 7.506 19.013 12.718 20.381 31.405 27.75c15.529 6.124 18.689 4.906 22.061 4.6s10.877-4.447 12.408-8.74 1.532-7.971 1.073-8.74-1.685-1.226-3.525-2.146-10.877-5.367-12.562-5.981-2.91-.919-4.137.921-4.746 5.979-5.819 7.206-2.144 1.381-3.984.462-7.76-2.861-14.784-9.124c-5.465-4.873-9.154-10.891-10.228-12.73s-.114-2.835.808-3.751c.825-.824 1.838-2.147 2.759-3.22s1.224-1.84 1.836-3.065.307-2.301-.153-3.22-4.032-10.011-5.666-13.647"/>
+                        </svg>
+                    </div>
+                    <h3>WhatsApp</h3>
+                    <p>+91 8004984421</p>
+                </a>
+                <a href="https://mail.google.com/mail/?view=cm&fs=1&to=rishabhkkumar30@gmail.com" target="_blank" class="contact-card" style="text-decoration: none; color: inherit;">
+                    <div class="contact-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#EA4335">
+                            <path d="M24 5.457v13.909c0 .904-.732 1.636-1.636 1.636h-3.819V11.73L12 16.64l-6.545-4.91v9.273H1.636A1.636 1.636 0 0 1 0 19.366V5.457c0-2.023 2.309-3.178 3.927-1.964L12 9.366l8.073-5.873C21.69 2.28 24 3.434 24 5.457z"/>
+                        </svg>
+                    </div>
+                    <h3>Email</h3>
+                    <p><span class="__cf_email__" data-cfemail="24564d574c45464c4
